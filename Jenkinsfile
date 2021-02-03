@@ -10,7 +10,7 @@ pipeline {
     
     stage('Update') {
       steps { 
-        sh 'cd ~/workspace/AKS/ && az aks get-credentials --resource-group aks-cluster --name aks && sleep 2m' 
+        sh 'cd ~/workspace/AKS/ rm -rf ~/.kube/config && az aks get-credentials --resource-group aks-cluster --name aks && sleep 2m' 
       }
     }
     
