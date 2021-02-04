@@ -4,13 +4,13 @@ pipeline {
    
     stage('Build') {
       steps { 
-        sh 'cd ~/workspace/AKS/ && terraform apply -auto-approve && sleep 2m' 
+        sh 'cd ~/workspace/AKS/ && terraform apply -auto-approve && sleep 1m' 
       }
     }
     
     stage('Update') {
       steps { 
-        sh 'cd ~/workspace/AKS/ rm -rf ~/.kube/config && az aks get-credentials --resource-group aks-cluster --name aks && sleep 2m' 
+        sh 'rm -rf ~/.kube/config && az aks get-credentials --resource-group aks-cluster --name aks && sleep 1m' 
       }
     }
     
@@ -28,7 +28,7 @@ pipeline {
     
     stage('Return') {
       steps { 
-        sh 'cd ~/workspace/AKS/ && kubectl get svc'
+        sh 'cd ~/workspace/AKS/ && sleep 4m && kubectl get svc'
       }
     }
     
