@@ -32,5 +32,11 @@ pipeline {
       }
     }
     
+     stage ('Invoke_pipelineA') {
+       steps {
+         build job: 'AutoGrafana'
+       }
+     }
+    
   }
 }
