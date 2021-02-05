@@ -31,12 +31,5 @@ pipeline {
         sh 'cd ~/workspace/AKS/ && sleep 4m && kubectl get svc'
       }
     }
-    
-     stage ('Invoke_pipelineA') {
-       steps {
-         build job: 'AutoGrafana'
-       }
-     }
-    
   }
 }
