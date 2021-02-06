@@ -2,6 +2,7 @@ pipeline {
   agent any
   stages {
     
+    stage('Test') {
       parallel {
         stage('Static Code Analysis') {
           steps {
@@ -9,6 +10,7 @@ pipeline {
           }
         }
       }
+    }
     
     stage('Build') {
       steps { 
